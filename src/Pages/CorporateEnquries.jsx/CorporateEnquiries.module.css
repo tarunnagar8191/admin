@@ -1,0 +1,46 @@
+.listRow {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr 3fr 4fr 2fr 2fr 1fr;
+}
+.enquiryList {
+  overflow: auto;
+  height: calc(100vh - 307px);
+}
+.enquiryList::-webkit-scrollbar {
+  width: 9px;
+}
+
+.enquiryList::-webkit-scrollbar-track {
+  background-color: rgb(218, 218, 218);
+}
+
+.enquiryList::-webkit-scrollbar-thumb {
+  background-color: rgb(183, 182, 182);
+  border-radius: 20px;
+  border: 1px solid rgb(136, 136, 136);
+}
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.286);
+}
+.enquiryData {
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+  gap: 2px;
+  padding: 4px 0px 10px 0px;
+}
+.inputField {
+  background-color: rgb(242, 242, 242);
+  outline: none;
+  /* border: 1px solid rgb(167, 165, 165); */
+  border-radius: 4px;
+  padding: 1px 6px 1px 6px;
+}
