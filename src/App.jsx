@@ -6,27 +6,110 @@ import DashBoard from "./Pages/DashBoard/DashBoard";
 import AddLecture from "./Pages/Lectures/AddLecture";
 import Mcq from "./Pages/Mcq/Mcq";
 import AddMcq from "./Pages/Mcq/AddMcq";
-import { QueryClientProvider, QueryClient  } from "react-query";
+import Subject from "./Pages/Subject/Subject";
+import AddSubject from "./Pages/Subject/AddSubject";
+import AddTopic from "./Pages/Topic/AddTopic";
+import Topic from "./Pages/Topic/Topic";
+import Login from "./Pages/Login/Login";
+import ValidateOtp from "./Pages/Login/ValidateOtp";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
+import UpdateSubject from "./Pages/Subject/UpdateSubject";
 // import {ReactQueryDevTools} from "react-query/devtools"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
 
-  const queryClient = new QueryClient()
 
   return (
-    <QueryClientProvider client={queryClient}>
-        <Routes>
-        <Route path="/" element={<DashBoard />} />
-          <Route path="/lecture" element={<Lecture />} />
-          <Route path="/add-lecture" element={<AddLecture />} />
-          <Route path="/mcq" element={<Mcq />} />
-          <Route path="/add-mcq" element={<AddMcq />} />
-
+    <>
+    <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <DashBoard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/subject"
+          element={
+            <PrivateRoute>
+              <Subject />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/add-subject"
+          element={
+            <PrivateRoute>
+              <AddSubject />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/update-subject/:id"
+          element={
+            <PrivateRoute>
+              <UpdateSubject />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/topic/:id"
+          element={
+            <PrivateRoute>
+              <Topic />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/add-topic/:id"
+          element={
+            <PrivateRoute>
+              <AddTopic />
+            </PrivateRoute>
+          }
+        /><Route
+        path="/lecture"
+        element={
+          <PrivateRoute>
+            <Lecture />
+          </PrivateRoute>
+        }
+      /><Route
+      path="/add-lecture"
+      element={
+        <PrivateRoute>
+          <AddLecture />
+        </PrivateRoute>
+      }
+    />
+    <Route
+      path="/add-mcq/:id"
+      element={
+        <PrivateRoute>
+          <AddMcq />
+        </PrivateRoute>
+      }
+    /><Route
+    path="/mcq"
+    element={
+      <PrivateRoute>
+        <Mcq />
+      </PrivateRoute>
+    }
+  />
+          <Route path="/login" element={<Login />} />
+          <Route path="/otp-validate" element={<ValidateOtp />} />
         </Routes>
-       {/* <ReactQueryDevTools initialIsOpen={false} postion="bottom-right"/> */}
-    </QueryClientProvider>
+        <ToastContainer />
+
+    </>
+        
   );
 }
 

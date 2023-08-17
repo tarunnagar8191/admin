@@ -68,7 +68,7 @@ const Sidebar = () => {
              
 
                 <Link
-                  to="/lecture"
+                  to="/subject"
                   className={`${
                     page.pathname === "/course-category" ||
                     page.pathname === "/course-category"
@@ -79,27 +79,12 @@ const Sidebar = () => {
                   <MdOutlineCategory />
                   {isExpended && (
                     <span className="ml-2 text-sm font-medium">
-                      Lectures
+                      Subject
                     </span>
                   )}
                 </Link>
 
-                <Link
-                  to="/mcq"
-                  className={`${
-                    page.pathname === "/contact-list" ||
-                    page.pathname === "/contact-list"
-                      ? `bg-gray-300 hover:bg-gray-300`
-                      : `hover:bg-gray-200 `
-                  } flex items-center w-full h-12 px-3 mt-2  rounded`}
-                >
-                  <RiContactsLine />
-                  {isExpended && (
-                    <span className="ml-2 text-sm font-medium">
-                      MCQ
-                    </span>
-                  )}
-                </Link>
+              
 
                          </div>
           </div>

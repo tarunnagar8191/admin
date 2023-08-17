@@ -58,14 +58,6 @@ function Lectures() {
   return (
     <div className="">
       <>
-          {/* {deleteModal && (
-            <DeleteModal
-              deleteModal={deleteModal}
-              handleCancelDelete={handleCancelDelete}
-              handleDelete={handleDelete}
-              selectedEmployeeId={selectedEmployeeId}
-            />
-          )} */}
           <div className="pl-8 pt-4 mt-4 pr-4">
           
 
@@ -78,6 +70,8 @@ function Lectures() {
                   <th>Name</th>
                   <th>Phone</th>
                   <th>Email</th>
+                  <th>Address</th>
+
                   <th>Date Of Contact</th>
                   <th>Action</th>
                 </tr>

@@ -6,9 +6,7 @@ function useDynamicCrud(endpoint) {
 
   // Read operation
   const readQueryKey = ['data', endpoint];
-  const readQuery = useQuery(readQueryKey, () => axios.get(endpoint).then((res) => res.data), {
-    staleTime: 300000, // Set the stale time in milliseconds (5 minutes in this example)
-  });
+  const readQuery = useQuery(readQueryKey, () => axios.get(endpoint).then((res) => res.data));
     // Create operation
     const createMutation = useMutation((data) => axios.post(endpoint, data), {
       onMutate: async (newData) => {
