@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { privateRequest } from '../../configs/RequestMethod';
 
 function AddMcq() {
-  const {topicId} = useParams() // Replace with your actual topicId
+  const {id} = useParams() // Replace with your actual topicId
   const navigate = useNavigate()
 
   const [testName, setTestName] = useState("");
@@ -66,8 +66,9 @@ function AddMcq() {
         options: question.options,
       })),
       answers,
-      topicId
+      topicId : id
     }
+    console.log(payload)
     // You can send the payload to an API or perform other actions here
     try {
       const response = await privateRequest.post('/study/test', payload);
