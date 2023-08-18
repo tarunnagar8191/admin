@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { MdOutlineCategory } from "react-icons/md";
 import { RiContactsLine } from "react-icons/ri";
 import { useState } from "react";
+import { BsBook, BsFillBookFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const [isExpended, setExpended] = useState(false);
@@ -83,9 +84,22 @@ const Sidebar = () => {
                     </span>
                   )}
                 </Link>
-
-              
-
+                <Link
+                  to="/mcqSubject"
+                  className={`${
+                    page.pathname === "/course-category" ||
+                    page.pathname === "/course-category"
+                      ? `bg-gray-300 hover:bg-gray-300`
+                      : `hover:bg-gray-200 `
+                  } flex items-center w-full h-12 px-3 mt-2  rounded`}
+                >
+                  <BsBook />
+                  {isExpended && (
+                    <span className="ml-2 text-sm font-medium">
+                      MCQ Subject
+                    </span>
+                  )}
+                </Link>
                          </div>
           </div>
         </div>

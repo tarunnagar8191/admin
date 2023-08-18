@@ -4,8 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Lecture from "./Pages/Lectures/Lectures"
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import AddLecture from "./Pages/Lectures/AddLecture";
-import Mcq from "./Pages/Mcq/Mcq";
-import AddMcq from "./Pages/Mcq/AddMcq";
 import Subject from "./Pages/Subject/Subject";
 import AddSubject from "./Pages/Subject/AddSubject";
 import AddTopic from "./Pages/Topic/AddTopic";
@@ -17,6 +15,10 @@ import UpdateSubject from "./Pages/Subject/UpdateSubject";
 // import {ReactQueryDevTools} from "react-query/devtools"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddMcqSubject from "./Pages/Mcq/AddMcqSubject";
+import McqSubject from "./Pages/Mcq/McqSubject";
+import AddMcq from "./Pages/Mcq/AddMcq";
+import AddMcqTest from "./Pages/Mcq/AddMcqTest";
 
 
 
@@ -89,20 +91,36 @@ function App() {
       }
     />
     <Route
+      path="/add-mcqSubject"
+      element={
+        <PrivateRoute>
+          <AddMcqSubject />
+        </PrivateRoute>
+      }
+    /><Route
+    path="/mcqSubject"
+    element={
+      <PrivateRoute>
+        <McqSubject />
+      </PrivateRoute>
+    }
+  />
+   <Route
       path="/add-mcq/:id"
       element={
         <PrivateRoute>
           <AddMcq />
         </PrivateRoute>
       }
-    /><Route
-    path="/mcq"
-    element={
-      <PrivateRoute>
-        <Mcq />
-      </PrivateRoute>
-    }
-  />
+    />
+    <Route
+      path="/add-mcqTest/:id"
+      element={
+        <PrivateRoute>
+          <AddMcqTest />
+        </PrivateRoute>
+      }
+    />
           <Route path="/login" element={<Login />} />
           <Route path="/otp-validate" element={<ValidateOtp />} />
         </Routes>

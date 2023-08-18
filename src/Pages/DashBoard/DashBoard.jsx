@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import HeaderSection from "./components/HeaderSection";
-import CorporateEnquiries from "../CorporateEnquries.jsx/CorporateEnquries";
+import UserDetails from "../UserDetails/UserDetails";
 
 const data = [
   { name: "Red", value: 300 },
@@ -42,7 +42,7 @@ const DashBoard = () => {
             </PieChart>
           </div>
         </div>
-        <CorporateEnquiries />
+        <UserDetails />
       </div>
     </div>
   );

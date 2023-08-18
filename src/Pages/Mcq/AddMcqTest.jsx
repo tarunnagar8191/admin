@@ -4,7 +4,7 @@ import Sidebar from '../../components/Sidebar';
 import { useNavigate, useParams } from 'react-router-dom';
 import { privateRequest } from '../../configs/RequestMethod';
 
-function AddMcq() {
+function AddMcqTest() {
   const {id} = useParams() // Replace with your actual topicId
   const navigate = useNavigate()
 
@@ -79,14 +79,14 @@ function AddMcq() {
         options: question.options,
       })),
       answers,
-      topicId : id
+      subjectId : id
     }
     console.log(payload)
     // You can send the payload to an API or perform other actions here
     try {
-      const response = await privateRequest.post('/study/test', payload);
+      const response = await privateRequest.post('/study/subjectTest', payload);
       console.log(response.data);
-      navigate('/subject')
+      navigate('/mcqSubject')
     } catch (error) {
       console.error(error);
     }
@@ -94,7 +94,7 @@ function AddMcq() {
 
   return (
     <>
-      <Navbar title="Add MCQ" />
+      <Navbar title="Add MCQ Test" />
       <Sidebar />
       <div className="max-w-xl m-auto">
         <div  className="">
@@ -179,4 +179,4 @@ function AddMcq() {
   );
 }
 
-export default AddMcq;
+export default AddMcqTest;

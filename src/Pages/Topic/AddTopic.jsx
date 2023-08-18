@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { privateRequest } from '../../configs/RequestMethod';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AddTopic = () => {
 
     const {id} = useParams()
-    console.log(id)
+    const navigate = useNavigate()
 
   const [image, setImage] = useState(null);
 
@@ -79,6 +79,7 @@ const AddTopic = () => {
             topics: topicsWithSubjectId,
           });
           console.log(response.data);
+          navigate('/subject')
           toast.success('Topic added successfully!');
         } catch (error) {
           console.error(error);
