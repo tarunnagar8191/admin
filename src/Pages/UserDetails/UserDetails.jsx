@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { privateRequest } from "../../configs/RequestMethod";
 import * as XLSX from "xlsx"; // Import the XLSX library for Excel conversion
+import {AiFillEye} from "react-icons/ai"
+import { Link } from "react-router-dom";
+import moment from "moment";
 
 function UserDetails() {
   const [data, setData] = useState([]);
@@ -58,6 +61,8 @@ function UserDetails() {
           <input
             type="text"
             id="stateFilter"
+            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
             value={stateFilter}
             onChange={e => setStateFilter(e.target.value)}
           />
@@ -67,6 +72,8 @@ function UserDetails() {
           <input
             type="text"
             id="districtFilter"
+            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+
             value={districtFilter}
             onChange={e => setDistrictFilter(e.target.value)}
           />
@@ -78,7 +85,7 @@ function UserDetails() {
           </button>
           </div>
           </div>
-          <div className="h-[calc(100vh-120px)] overflow-auto mt-2 ">
+          <div className="h-[calc(60vh-120px)] overflow-auto mt-2 ">
             <table className="w-[100%] border-collapse">
               {/* head */}
               <thead className="bg-purple-400 text-white sticky top-0">
@@ -89,6 +96,7 @@ function UserDetails() {
                   <th>State</th>
                   <th>District</th>
                   <th>Date Of Contact</th>
+                  <th>Action</th>
                 </tr>
               </thead>
 
@@ -110,7 +118,12 @@ function UserDetails() {
                     <td>{item.mobileNo}</td>
                     <td>{item.state}</td>
                     <td>{item.district}</td>
-                    <td>{item.createdAt}</td>
+                    <td>{moment(item.createdAt).format("MMMM D, YYYY")}</td>
+                    <td className="text-center text-2xl text-blue-500  flex justify-center">
+                      <Link to={`/view-userDetails/${item._id}`}>
+                      <AiFillEye/>
+                        </Link></td>
+
                   </tr>
                 ))}
               </tbody>

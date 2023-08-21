@@ -19,6 +19,7 @@ import AddMcqSubject from "./Pages/Mcq/AddMcqSubject";
 import McqSubject from "./Pages/Mcq/McqSubject";
 import AddMcq from "./Pages/Mcq/AddMcq";
 import AddMcqTest from "./Pages/Mcq/AddMcqTest";
+import ViewUserDetails from "./Pages/UserDetails/ViewUserDetails";
 
 
 
@@ -33,6 +34,14 @@ function App() {
           element={
             <PrivateRoute>
               <DashBoard />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/view-userDetails/:id"
+          element={
+            <PrivateRoute>
+              <ViewUserDetails />
             </PrivateRoute>
           }
         />
